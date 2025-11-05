@@ -1,7 +1,12 @@
 steps:
   # 1. Build Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', '${_AR_REPO}/${_SERVICE_NAME}:$SHORT_SHA', '.']
+    args: [
+      'build',
+      '-t', '${_AR_REPO}/${_SERVICE_NAME}:$SHORT_SHA',
+      '-f', 'hello-cloudrun/Dockerfile',
+      'hello-cloudrun'
+    ]
 
   # 2. Push image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
@@ -27,6 +32,5 @@ substitutions:
 images:
   - "${_AR_REPO}/${_SERVICE_NAME}:$SHORT_SHA"
 
-# 👇 Added section for new policy requirements (2024+)
 options:
   logging: CLOUD_LOGGING_ONLY
