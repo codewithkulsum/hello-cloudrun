@@ -20,7 +20,7 @@ steps:
       - --allow-unauthenticated
 
 substitutions:
-  _AR_REPO: "us-central1-docker.pkg.dev/YOUR_PROJECT_ID/demo-repo"
+  _AR_REPO: "us-central1-docker.pkg.dev/809536676139/demo-repo"
   _SERVICE_NAME: "hello-cloudrun"
   _REGION: "us-central1"
 
